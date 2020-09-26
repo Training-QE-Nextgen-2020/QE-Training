@@ -25,11 +25,14 @@ public class FirstHundredPrime {
 				}
 			}
 			
+			//when it is prime number it will increment the tally
 			if(flag) {
 				tally++;
 				System.out.println("Prime number:" + number);
 			}
 			
+			
+			// keep the tally upto 100 and break the loop
 			if(tally == 100) {
 				CONTINUE_LOOP = false;
 			}
