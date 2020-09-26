@@ -14,6 +14,18 @@ public class THashMap {
 		productMap.put(127, 994);
 		productMap.put(128, 998);
 		
+		//one and only one key can be null
+		productMap.put(null,  1212);
+		
+		//any number of values can be null
+		productMap.put(1222,null);
+		productMap.put(1223,null);
+		productMap.put(1224,null);
+		
+		
+		
+		//print all the keys and values without travesing
+		System.out.println("all the keys and values:" + productMap.toString());
 		
 		//traversing thru
 		for(Integer key : productMap.keySet()) {
