@@ -8,6 +8,7 @@ public class Algorithm2 {
 		System.out.print(s.charAt(1));
 		System.out.print(s.charAt(2));
 		
+		//fake changes
 		
 	}
 
