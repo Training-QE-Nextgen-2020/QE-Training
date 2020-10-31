@@ -1,28 +1,58 @@
 package org.nextgen.api;
 
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import junit.framework.Assert;
 
 
 public class RestAssuredGetTest {
 	
+	Response response;
 	
-	@Test
-	public void testGetEmployees() {
+	@BeforeMethod
+	public void run() {
+		 response = RestAssured
+		.get("https://jsonplaceholder.typicode.com/todos/2");
 		 
-		Response response = RestAssured.get("http://dummy.restapiexample.com/api/v1/employees");	 
+		 //make sure there is a response
+		 Assert.assertNotNull(response);
+		 
+		 //make sure service is up and responded with 200/ok
+		 response
+		.then()
+		.assertThat()
+		.statusCode(200);
+		 System.out.println(response.asString());
+		 
 		
+	}
+	
+	
+	@Test(suiteName = "PERF")	
+	public void validateResponse() {
+		 
+		int userId = response
+				.then()
+				.assertThat()
+				.statusCode(200)
+				.extract()
+				.path("userId")
+				;
+		Assert.assertNotNull(userId);
+		Assert.assertEquals(userId, 1);	
+					
 		 
 		//validating respons code
-		Assert.assertEquals(200, response.getStatusCode());
-		 
-		 //https://github.com/rest-assured/rest-assured/wiki/Usage#example-1---json
-		 //use this to validate response body elements from json
 		 
 		
+		
+	}
+	
+	@Test(enabled = false)
+	public void testPost() {
 		
 	}
 	
