@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,8 +14,11 @@ public class SeleniumLocatorId {
 
 	@BeforeMethod
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "chromedriver");
-		driver = new ChromeDriver();
+System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/geckodriver");
+		
+		//creating object instance for the Firefoxdriver
+		driver = new FirefoxDriver();
+
 		driver.get("https://www.target.com");
 	}
 

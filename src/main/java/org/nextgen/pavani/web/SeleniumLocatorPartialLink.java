@@ -1,7 +1,7 @@
 package org.nextgen.pavani.web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.testng.annotations.BeforeMethod;
@@ -14,14 +14,17 @@ public class SeleniumLocatorPartialLink {
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		driver = new ChromeDriver();
-		driver.get("https://www.amazon.com");
+		driver.get("https://www.target.com");
 
 	}
 
 	@Test
 	public void testTargetHomePage() throws InterruptedException {
 
-		driver.findElement(By.partialLinkText("Returns ")).click();
+	WebElement partialWeekllink=driver.findElement(By.partialLinkText("Weekly "));
+	partialWeekllink.click();
+	
+	
 		Thread.sleep(2000);
 
 		driver.quit();

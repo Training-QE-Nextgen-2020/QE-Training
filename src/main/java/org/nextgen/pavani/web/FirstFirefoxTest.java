@@ -20,7 +20,8 @@ public class FirstFirefoxTest {
 		driver = new FirefoxDriver();
 
 		//driver.get("https://www.google.com");
-		driver.get("https://www.ebay.com/?norover=1&mkevt=1&mkrid=711-158810-934349-9&mkcid=2&keyword=ebay&crlp=431466732167_&MT_ID=&geo_id=&rlsatarget=kwd-11021220&adpos=&device=c&mktype=&loc=9032008&poi=&abcId=&cmpgn=9834622244&sitelnk=&adgroupid=98381287885&network=g&matchtype=e&gclid=EAIaIQobChMI18Hbp4Ti7AIVhT6tBh1dzAQMEAAYASAAEgJnw_D_BwE");
+		driver.get("https://www.ebay.com/");
+		//thread.sleep(1000);
 	}
 
 	@Test
@@ -28,8 +29,8 @@ public class FirstFirefoxTest {
 		WebElement searchBox =  driver.findElement(By.id("gh-ac"));
 		Assert.assertNotNull(searchBox);
 		
-		driver.close();
-		System.exit(0);
+		
+	
 
 	}
 
